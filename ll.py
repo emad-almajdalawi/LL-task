@@ -23,7 +23,7 @@ class LinkedList:
 
     def add(self, data):
         """
-        Create new node then add it to the end of the linked-list
+        Create new node then add it to the end of the linked-list. time -> O(N), space -> O(1)
         Input: data (a new node will be created using this data)
         Output: Nothing
         """
@@ -40,7 +40,32 @@ class LinkedList:
                 self.head = new_node
             else:
                 current = self.head
-                while not current.next1 in None:
+                while not current.next1 is None:
                     current = current.next1
                 current.next1 = new_node
                 current.next2 = new_node
+
+    def __str__(self):
+        output = ""
+        if self.head is None:
+            output += "The linked-list is empty"
+        else:
+            current = self.head
+            while current is not None:
+                output += "{ " f"{current.data}" " } -> "
+                current = current.next1
+            output += "NULL"
+        return output
+
+
+if __name__ == "__main__":
+    LL = LinkedList()
+
+    LL.add(1)
+    LL.add(2)
+    LL.add(3)
+    LL.add(3)
+    LL.add(4)
+    LL.add(5)
+
+    print(LL)
